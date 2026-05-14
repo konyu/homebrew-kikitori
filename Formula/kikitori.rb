@@ -12,17 +12,22 @@ class Kikitori < Formula
   depends_on "portaudio"
 
   def install
+    # 仮想環境作成
     venv = virtualenv_create(libexec, "python3.14")
-    venv.pip_install buildpath
 
-    # requirements.txt から依存関係をインストール
+    # pip アップグレード
+    system libexec/"bin/pip", "install", "--upgrade", "pip"
+
+    # 依存関係インストール
     system libexec/"bin/pip", "install", "-r", buildpath/"requirements.txt"
 
-    # エントリポイントスクリプト
+    # アプリケーションファイルをコピー
+    libexec.install Dir["*"]
+
+    # ランチャースクリプト
     (bin/"kikitori").write <<~EOS
       #!/bin/bash
-      export KIKITORI_HOME="#{opt_prefix}"
-      exec "#{libexec}/bin/python" "#{opt_prefix}/pyside_main.py" "$@"
+      exec "#{libexec}/bin/python" "#{libexec}/pyside_main.py" "$@"
     EOS
   end
 

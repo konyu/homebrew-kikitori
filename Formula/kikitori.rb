@@ -1,6 +1,4 @@
 class Kikitori < Formula
-  include Language::Python::Virtualenv
-
   desc "macOS menu bar voice-to-text tool with overlay UI"
   homepage "https://github.com/konyu/kikitori"
   url "https://github.com/konyu/kikitori/archive/refs/tags/v1.0.0.tar.gz"
@@ -12,8 +10,8 @@ class Kikitori < Formula
   depends_on "portaudio"
 
   def install
-    # 仮想環境作成
-    venv = virtualenv_create(libexec, "python3.14")
+    # 手動でvenv作成（pip付き）
+    system Formula["python@3.14"].opt_bin/"python3.14", "-m", "venv", libexec
 
     # pip アップグレード
     system libexec/"bin/pip", "install", "--upgrade", "pip"

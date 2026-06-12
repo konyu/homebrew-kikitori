@@ -2,8 +2,8 @@ class Kikitori < Formula
   desc "macOS menu bar voice-to-text tool with overlay UI"
   homepage "https://github.com/konyu/kikitori"
   url "https://github.com/konyu/kikitori.git",
-      tag:      "v0.4.2",
-      revision: "3bb58f6de3bc22a7b1f2937d53128dd14a973b7c"
+      tag:      "v0.5.0",
+      revision: "103b020f57bab1f5325c1e7b632e33203e7bda48"
   license "MIT"
 
   depends_on "python@3.14"
@@ -12,6 +12,11 @@ class Kikitori < Formula
 
   # pip install にネットワークアクセスが必要
   allow_network_access! :build
+
+  bottle do
+    root_url "https://github.com/konyu/kikitori/releases/download/v0.5.0"
+    sha256 arm64_sequoia: "07171261d77dc858a499d8f093a4b19c03eae6e569670419cd058763efac9011"
+  end
 
   def install
     # 手動でvenv作成（pip付き）

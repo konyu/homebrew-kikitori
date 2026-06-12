@@ -3,7 +3,7 @@ class Kikitori < Formula
   homepage "https://github.com/konyu/kikitori"
   url "https://github.com/konyu/kikitori.git",
       tag:      "v0.4.1",
-      revision: "fac2e736bebabb5eb5c3b7e24e1bd89462556e15"
+      revision: "fac2e73e7d1b646c6ddbbf1bc20cb09f241e9fee"
   license "MIT"
 
   depends_on "python@3.14"

@@ -15,7 +15,7 @@ class Kikitori < Formula
 
   bottle do
     root_url "https://github.com/konyu/kikitori/releases/download/v0.5.0"
-    sha256 arm64_sequoia: "07171261d77dc858a499d8f093a4b19c03eae6e569670419cd058763efac9011"
+    sha256 arm64_sequoia: "9eeccaeb306adfff49c188dbbbbb915d4336c97d749d8824db7011b1e68cc436"
   end
 
   def install

@@ -9,6 +9,9 @@ class Kikitori < Formula
   depends_on "ffmpeg"
   depends_on "portaudio"
 
+  # pip install にネットワークアクセスが必要
+  allow_network_access! :build
+
   def install
     # 手動でvenv作成（pip付き）
     system Formula["python@3.14"].opt_bin/"python3.14", "-m", "venv", libexec

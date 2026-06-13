@@ -6,7 +6,7 @@ class Kikitori < Formula
       revision: "103b020f57bab1f5325c1e7b632e33203e7bda48"
   license "MIT"
 
-  depends_on "python@3.14"
+  depends_on "python@3.13"
   depends_on "ffmpeg"
   depends_on "portaudio"
 
@@ -20,7 +20,7 @@ class Kikitori < Formula
 
   def install
     # 手動でvenv作成（pip付き）
-    system Formula["python@3.14"].opt_bin/"python3.14", "-m", "venv", libexec
+    system Formula["python@3.13"].opt_bin/"python3.13", "-m", "venv", libexec
 
     # pip アップグレード
     system libexec/"bin/pip", "install", "--upgrade", "pip"
